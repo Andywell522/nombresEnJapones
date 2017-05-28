@@ -201,7 +201,7 @@ public class interfaaz extends javax.swing.JFrame {
                 SoundActionPerformed(evt);
             }
         });
-        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 560, 100, 90));
+        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 550, 100, 90));
 
         SuLiteralEs.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SuLiteralEs.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,7 +214,7 @@ public class interfaaz extends javax.swing.JFrame {
                 LiteralActionPerformed(evt);
             }
         });
-        getContentPane().add(Literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 430, 40));
+        getContentPane().add(Literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 440, 40));
 
         KANA.setBackground(new java.awt.Color(153, 204, 255));
         KANA.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
