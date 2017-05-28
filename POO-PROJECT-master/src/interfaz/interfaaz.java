@@ -2,19 +2,15 @@
 
 package interfaz;
 
-
-
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import java.io.IOException;
 import javax.sound.sampled.AudioSystem;
-
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -141,7 +137,7 @@ public class interfaaz extends javax.swing.JFrame {
         getContentPane().add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, 400, 70));
 
         Miku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/miku.jpeg"))); // NOI18N
-        getContentPane().add(Miku, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        getContentPane().add(Miku, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 230, -1));
 
         Titulo.setBackground(new java.awt.Color(51, 102, 255));
         Titulo.setFont(new java.awt.Font("Bell MT", 1, 48)); // NOI18N
@@ -159,13 +155,13 @@ public class interfaaz extends javax.swing.JFrame {
 
         Nge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NGE.jpg"))); // NOI18N
         Nge.setText("jLabel1");
-        getContentPane().add(Nge, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 300, -1));
+        getContentPane().add(Nge, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 230, -1));
 
         jLabelDBZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DBZ.jpg"))); // NOI18N
         getContentPane().add(jLabelDBZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 640, -1, -1));
 
         jLabelAGK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AGK.jpg"))); // NOI18N
-        getContentPane().add(jLabelAGK, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+        getContentPane().add(jLabelAGK, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jLabelKNN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/KNN.png"))); // NOI18N
         getContentPane().add(jLabelKNN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 410, -1, -1));
@@ -177,7 +173,7 @@ public class interfaaz extends javax.swing.JFrame {
         jLabelIngresaNombre.setForeground(new java.awt.Color(255, 255, 51));
         jLabelIngresaNombre.setText("Ingresa Tu Nombre:");
         getContentPane().add(jLabelIngresaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 320, 70));
-        getContentPane().add(Katakana, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, 730, 150));
+        getContentPane().add(Katakana, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 690, 410, 100));
 
         NombreUsuario.setBackground(new java.awt.Color(153, 255, 255));
         NombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -199,7 +195,7 @@ public class interfaaz extends javax.swing.JFrame {
                 SoundActionPerformed(evt);
             }
         });
-        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 640, 100, 90));
+        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 560, 100, 90));
 
         SuLiteralEs.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SuLiteralEs.setForeground(new java.awt.Color(255, 255, 255));
