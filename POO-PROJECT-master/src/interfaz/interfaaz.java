@@ -1,15 +1,20 @@
 
+
 package interfaz;
+
+
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import java.io.IOException;
 import javax.sound.sampled.AudioSystem;
+
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
