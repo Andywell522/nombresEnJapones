@@ -93,12 +93,13 @@ public class interfaaz extends javax.swing.JFrame {
         jLabelKNN = new javax.swing.JLabel();
         jLabelDN = new javax.swing.JLabel();
         jLabelIngresaNombre = new javax.swing.JLabel();
-        Katakana = new javax.swing.JLabel();
+        KanaNombre = new javax.swing.JLabel();
         NombreUsuario = new javax.swing.JTextField();
         Sound = new javax.swing.JButton();
         SuLiteralEs = new javax.swing.JLabel();
         Literal = new javax.swing.JTextField();
         KANA = new javax.swing.JButton();
+        KanaEspacio = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,7 +174,7 @@ public class interfaaz extends javax.swing.JFrame {
         jLabelIngresaNombre.setForeground(new java.awt.Color(255, 255, 51));
         jLabelIngresaNombre.setText("Ingresa Tu Nombre:");
         getContentPane().add(jLabelIngresaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 320, 70));
-        getContentPane().add(Katakana, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 690, 410, 100));
+        getContentPane().add(KanaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 680, 410, 100));
 
         NombreUsuario.setBackground(new java.awt.Color(153, 255, 255));
         NombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -220,6 +221,9 @@ public class interfaaz extends javax.swing.JFrame {
             }
         });
         getContentPane().add(KANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 380, 70));
+
+        KanaEspacio.setText("jLabel1");
+        getContentPane().add(KanaEspacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 680, 100, 100));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/blue.jpg"))); // NOI18N
         Fondo.setMaximumSize(new java.awt.Dimension(1650, 900));
@@ -412,8 +416,8 @@ public class interfaaz extends javax.swing.JFrame {
         }
         
         Imagen Imagen = new Imagen();
-        Katakana.add(Imagen);
-        Katakana.repaint();  
+        KanaNombre.add(Imagen);
+        KanaNombre.repaint();  
     }//GEN-LAST:event_TraducirActionPerformed
 
     private void SoundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SoundMouseClicked
@@ -1209,7 +1213,8 @@ public class interfaaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton KANA;
-    private javax.swing.JLabel Katakana;
+    private javax.swing.JLabel KanaEspacio;
+    private javax.swing.JLabel KanaNombre;
     private javax.swing.JButton Limpiar;
     private javax.swing.JTextField Literal;
     private javax.swing.JLabel Miku;
