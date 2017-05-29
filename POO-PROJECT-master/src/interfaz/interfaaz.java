@@ -1,8 +1,5 @@
 
-
 package interfaz;
-
-
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -37,12 +34,14 @@ public class interfaaz extends javax.swing.JFrame {
     public interfaaz() {
         initComponents();
         setLocationRelativeTo(null);
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize()); 
     }
     
     
     public class Imagen extends javax.swing.JPanel {
     public Imagen() {
-    this.setSize(144,222); //se selecciona el tamaño del panel
+    this.setSize(KanaNombre.getSize());
+    this.setSize(KanaApellido.getSize());//se selecciona el tamaño del panel
     }
     //Se crea un método cuyo parámetro debe ser un objeto Graphics
     @Override
@@ -59,9 +58,7 @@ public class interfaaz extends javax.swing.JFrame {
     
     public void Sonidos (String archivo)
     {
-     
         try {
-            
             clip= AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta+archivo+".mp3")));
             clip.start();
@@ -84,6 +81,7 @@ public class interfaaz extends javax.swing.JFrame {
     private void initComponents() {
 
         Traducir = new javax.swing.JButton();
+        KANA = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
         KanaNombre = new javax.swing.JLabel();
@@ -102,7 +100,6 @@ public class interfaaz extends javax.swing.JFrame {
         Sound = new javax.swing.JButton();
         SuLiteralEs = new javax.swing.JLabel();
         Literal = new javax.swing.JTextField();
-        KANA = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,13 +109,24 @@ public class interfaaz extends javax.swing.JFrame {
         Traducir.setBackground(new java.awt.Color(102, 153, 255));
         Traducir.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         Traducir.setForeground(new java.awt.Color(0, 102, 0));
-        Traducir.setText("TRADUCIR LITERAL");
+        Traducir.setText("TRADUCIR NOMBRE");
         Traducir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TraducirActionPerformed(evt);
             }
         });
-        getContentPane().add(Traducir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 380, 60));
+        getContentPane().add(Traducir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 400, 60));
+
+        KANA.setBackground(new java.awt.Color(153, 204, 255));
+        KANA.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        KANA.setForeground(new java.awt.Color(0, 153, 51));
+        KANA.setText("TRADUCIR APELLIDO");
+        KANA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KANAActionPerformed(evt);
+            }
+        });
+        getContentPane().add(KANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 610, 440, 60));
 
         Salir.setBackground(new java.awt.Color(153, 102, 255));
         Salir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -138,7 +146,7 @@ public class interfaaz extends javax.swing.JFrame {
                 LimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, 400, 70));
+        getContentPane().add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 510, 190, 70));
         getContentPane().add(KanaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 700, 400, 100));
 
         KanaEspacio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espacio.JPG"))); // NOI18N
@@ -164,10 +172,10 @@ public class interfaaz extends javax.swing.JFrame {
 
         Nge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NGE.jpg"))); // NOI18N
         Nge.setText("jLabel1");
-        getContentPane().add(Nge, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 230, -1));
+        getContentPane().add(Nge, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 230, -1));
 
         jLabelDBZ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DBZ.jpg"))); // NOI18N
-        getContentPane().add(jLabelDBZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 640, -1, -1));
+        getContentPane().add(jLabelDBZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 690, -1, -1));
 
         jLabelAGK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AGK.jpg"))); // NOI18N
         getContentPane().add(jLabelAGK, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
@@ -178,10 +186,10 @@ public class interfaaz extends javax.swing.JFrame {
         jLabelDN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DN.jpg"))); // NOI18N
         getContentPane().add(jLabelDN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 170, -1, -1));
 
-        jLabelIngresaNombre.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jLabelIngresaNombre.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
         jLabelIngresaNombre.setForeground(new java.awt.Color(255, 255, 51));
         jLabelIngresaNombre.setText("Ingresa Tu Nombre:");
-        getContentPane().add(jLabelIngresaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 320, 70));
+        getContentPane().add(jLabelIngresaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 420, 70));
 
         NombreUsuario.setBackground(new java.awt.Color(153, 255, 255));
         NombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -190,7 +198,7 @@ public class interfaaz extends javax.swing.JFrame {
                 NombreUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 500, 60));
+        getContentPane().add(NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, 500, 60));
 
         Sound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sonido.jpg"))); // NOI18N
         Sound.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,31 +211,20 @@ public class interfaaz extends javax.swing.JFrame {
                 SoundActionPerformed(evt);
             }
         });
-        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 550, 100, 90));
+        getContentPane().add(Sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 100, 90));
 
-        SuLiteralEs.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SuLiteralEs.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         SuLiteralEs.setForeground(new java.awt.Color(255, 255, 255));
-        SuLiteralEs.setText("Traducción en Fonética española");
-        getContentPane().add(SuLiteralEs, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 350, 40));
+        SuLiteralEs.setText("Traducción en Fonética española:");
+        getContentPane().add(SuLiteralEs, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 430, 60));
 
-        Literal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Literal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Literal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LiteralActionPerformed(evt);
             }
         });
-        getContentPane().add(Literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 440, 40));
-
-        KANA.setBackground(new java.awt.Color(153, 204, 255));
-        KANA.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        KANA.setForeground(new java.awt.Color(0, 153, 51));
-        KANA.setText("TRADUCIR KATAKANA");
-        KANA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KANAActionPerformed(evt);
-            }
-        });
-        getContentPane().add(KANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 380, 70));
+        getContentPane().add(Literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 500, 60));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/blue.jpg"))); // NOI18N
         Fondo.setMaximumSize(new java.awt.Dimension(1650, 900));
@@ -246,7 +243,16 @@ public class interfaaz extends javax.swing.JFrame {
     }//GEN-LAST:event_TituloActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
-        // TODO add your handling code here:
+      
+        NombreUsuario.setText("");
+        NombreUsuario.setEnabled(true);
+        Literal.setText("");
+        KanaNombre.show(false);
+        KanaApellido.show(false);
+
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void NombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioActionPerformed
@@ -271,146 +277,183 @@ public class interfaaz extends javax.swing.JFrame {
         String resulname;
         
         resulname = NombreUsuario.getText ();
-                
+        
+        
+        
         switch (resulname) {
         
             
-           case "Alexei Ochoa":            
+            case "Alexei Ochoa":            
                 Literal.setText("Arekusuei Ochoa" );
-                pivote="/Imagenes/OP/";
+                pivote="/Imagenes/alexei.jpg" ;
             break;                   
               
+            
             case "Cristian Aguilera":            
                 Literal.setText("Kurisutian Agirera" );
+                pivote="/Imagenes/cristian.jpg" ;
             break;       
         
+            
             case "Nicolás Álvarez":            
                 Literal.setText("Nikorasu Arubaresu" );
+                pivote="/Imagenes/nicolas.jpg" ;
             break;
             
             case "Alicia Arenaza":            
                 Literal.setText("Arishia Arenasa" );
+                pivote="/Imagenes/alicia.jpg" ;
             break;
             
             case "David Bernal":            
                 Literal.setText("Dabiddo Berunaru" );
+                pivote="/Imagenes/david.jpg" ;
             break;
             
             case "Diego Cortés":            
                 Literal.setText("Diego Korutesu" );
+                pivote="/Imagenes/diego.jpg" ;
             break;
             
             case "Diego Delgado":            
                 Literal.setText("Diego Derugado" );
+                pivote="/Imagenes/diego.jpg" ;
             break;
             
             case "Claudia Espejo":            
                 Literal.setText("Kuraudia Esupeho" );
+                pivote="/Imagenes/claudia.jpg" ;
             break;
             
             case "David Fonseca":            
                 Literal.setText("Dabiddo Fonseka" );
+                pivote="/Imagenes/david.jpg" ;
             break;
             
             case "Maicol Fontecha":            
                 Literal.setText( "Maikoru Fontecha" );
+                pivote="/Imagenes/maicol.jpg" ;
             break;
             
             case "Johan Gamba":            
                 Literal.setText("Hoan Gamuba" );
+                pivote="/Imagenes/johan.jpg" ;
             break;
             
             case "Joan Gómez":            
                 Literal.setText( "Hoan Gomesu" );
+                pivote="/Imagenes/joan.jpg" ;
             break;
             
             case "David Gutiérrez":            
                 Literal.setText("Dabiddo Gutieresu" );
+                pivote="/Imagenes/david.jpg" ;
             break;
             
             case "Jorge Hernández":            
                 Literal.setText("Horuhe Erunandesu" );
+                pivote="/Imagenes/jorge.jpg" ;
             break;
             
             case "Sebastián Linares":            
                 Literal.setText( "Sebasutian Rinaresu" );
+                pivote="/Imagenes/sebastian.jpg" ;
             break;
             
             case "Andrés Lizarazo":            
                 Literal.setText( "Andoresu Risaraso" );
+                pivote="/Imagenes/andres.jpg" ;
             break;
             
             case "Nicolás Manosalva":            
                 Literal.setText("Nikorasu Manosaruba" );
+                pivote="/Imagenes/nicolas.jpg" ;
             break;
             
             case "Santiago Martín":            
                 Literal.setText("Santiago Marutin" );
+                pivote="/Imagenes/santiago.jpg" ;
             break;
             
             case "Carlos Martínez":            
                 Literal.setText("Karurosu Marutinesu" );
+                pivote="/Imagenes/carlos.jpg" ;
             break;
        
              case "Manuel Medina":            
                 Literal.setText("Manueru Medina" );
+                pivote="/Imagenes/manuel.jpg" ;
             break;
             
              case "Daniel Mesa":            
                 Literal.setText("Danieru Mesa" );
+                pivote="/Imagenes/daniel.jpg" ;
             break;
             
              case "Mauricio Meza":            
                 Literal.setText("Maurishio Mesa" );
+                pivote="/Imagenes/mauricio.jpg" ;
             break;
             
              case "Sebastián Moreno":            
                 Literal.setText( "Sebasutian Moreno" );
+                pivote="/Imagenes/sebastian.jpg" ;
             break;            
             
             case "Sergio Quintero":            
                 Literal.setText( "Seruhio Kintero" );
+                pivote="/Imagenes/sergio.jpg" ;
             break;
             
             case "Daniela Quiroga":            
                 Literal.setText( "Daniera Kiroga" );
+                pivote="/Imagenes/daniela.jpg" ;
             break;
             
             case "Mariana Rodríguez":            
                 Literal.setText( "Mariana Rodorigesu" );
+                pivote="/Imagenes/mariana.jpg" ;
             break;
             
             case "Sebastián Sánchez":            
                 Literal.setText( "Sebasutian Sanchesu" );
+                pivote="/Imagenes/sebastian.jpg" ;
             break;
             
             case "María Sánchez":            
                 Literal.setText( "Maria Sanchesu" );
+                pivote="/Imagenes/maria.jpg" ;
             break;
             
             case "Oscar Segura":            
                 Literal.setText( "Osukaru Segura" );
+                pivote="/Imagenes/oscar.jpg" ;
             break;
             
             case "Andrés Sierra":            
                 Literal.setText("Andoresu Shiera" );
+                pivote="/Imagenes/andres.jpg" ;
             break;
             
             case "Sebastián Tovar":            
                 Literal.setText("Sebasutian Tobaru" );
+                pivote="/Imagenes/sebastian.jpg" ;
             break;
             
             case "Julie Triviño":            
                 Literal.setText( "Furie Toribinyo" );
+                pivote="/Imagenes/julie.jpg" ;
             break;
             
             case "Brayan Upegui":            
                 Literal.setText("Burajan Upegi" );
+                pivote="/Imagenes/brayan.jpg" ;
             break;
             
             
             case "Juan Valenzuela":            
                 Literal.setText( "Fuan Barensuera" );
+                pivote="/Imagenes/juan.jpg" ;
             break;
             
             
@@ -419,9 +462,14 @@ public class interfaaz extends javax.swing.JFrame {
             break; 
         }
         
-        Imagen Imagen = new Imagen();
-        KanaNombre.add(Imagen);
-        KanaNombre.repaint();  
+                Imagen Imagen = new Imagen();
+                KanaNombre.add(Imagen);
+                KanaNombre.repaint();
+                KanaNombre.show(true); 
+        
+              
+        
+          
     }//GEN-LAST:event_TraducirActionPerformed
 
     private void SoundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SoundMouseClicked
@@ -1167,10 +1215,196 @@ public class interfaaz extends javax.swing.JFrame {
 
     private void KANAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KANAActionPerformed
 
-       
-              
         
-
+       String resulape ;
+       resulape =  NombreUsuario.getText ();
+              
+           switch (resulape) {
+        
+            
+           case "Alexei Ochoa":            
+                Literal.setText("Arekusuei Ochoa" );
+                pivote="/Imagenes/ochoa.jpg" ;
+                
+                
+            break;                   
+              
+            case "Cristian Aguilera":            
+                Literal.setText("Kurisutian Agirera" );
+                pivote="/Imagenes/aguilera.jpg" ;
+            break;       
+        
+            case "Nicolás Álvarez":            
+                Literal.setText("Nikorasu Arubaresu" );
+                pivote="/Imagenes/alvarez.jpg" ;
+            break;
+            
+            case "Alicia Arenaza":            
+                Literal.setText("Arishia Arenasa" );
+                pivote="/Imagenes/arenaza.jpg" ;
+            break;
+            
+            case "David Bernal":            
+                Literal.setText("Dabiddo Berunaru" );
+                pivote="/Imagenes/bernal.jpg" ;
+            break;
+            
+            case "Diego Cortés":            
+                Literal.setText("Diego Korutesu" );
+                pivote="/Imagenes/cortes.jpg" ;
+            break;
+            
+            case "Diego Delgado":            
+                Literal.setText("Diego Derugado" );
+                pivote="/Imagenes/delgado.jpg" ;
+            break;
+            
+            case "Claudia Espejo":            
+                Literal.setText("Kuraudia Esupeho" );
+                pivote="/Imagenes/espejo.jpg" ;
+            break;
+            
+            case "David Fonseca":            
+                Literal.setText("Dabiddo Fonseka" );
+                pivote="/Imagenes/fonseca.jpg" ;
+            break;
+            
+            case "Maicol Fontecha":            
+                Literal.setText( "Maikoru Fontecha" );
+                pivote="/Imagenes/fontecha.jpg" ;
+            break;
+            
+            case "Johan Gamba":            
+                Literal.setText("Hoan Gamuba" );
+                pivote="/Imagenes/gamba.jpg" ;
+            break;
+            
+            case "Joan Gómez":            
+                Literal.setText( "Hoan Gomesu" );
+                pivote="/Imagenes/gomez.jpg" ;
+            break;
+            
+            case "David Gutiérrez":            
+                Literal.setText("Dabiddo Gutieresu" );
+                pivote="/Imagenes/gutierrez.jpg" ;
+            break;
+            
+            case "Jorge Hernández":            
+                Literal.setText("Horuhe Erunandesu" );
+                pivote="/Imagenes/hernandez.jpg" ;
+            break;
+            
+            case "Sebastián Linares":            
+                Literal.setText( "Sebasutian Rinaresu" );
+                pivote="/Imagenes/linares.jpg" ;
+            break;
+            
+            case "Andrés Lizarazo":            
+                Literal.setText( "Andoresu Risaraso" );
+                pivote="/Imagenes/lizarazo.jpg" ;
+            break;
+            
+            case "Nicolás Manosalva":            
+                Literal.setText("Nikorasu Manosaruba" );
+                pivote="/Imagenes/manosalva.jpg" ;
+            break;
+            
+            case "Santiago Martín":            
+                Literal.setText("Santiago Marutin" );
+                pivote="/Imagenes/martin.jpg" ;
+            break;
+            
+            case "Carlos Martínez":            
+                Literal.setText("Karurosu Marutinesu" );
+                pivote="/Imagenes/martinez.jpg" ;
+            break;
+       
+             case "Manuel Medina":            
+                Literal.setText("Manueru Medina" );
+                pivote="/Imagenes/medina.jpg" ;
+            break;
+            
+             case "Daniel Mesa":            
+                Literal.setText("Danieru Mesa" );
+                pivote="/Imagenes/mesa.jpg" ;
+            break;
+            
+             case "Mauricio Meza":            
+                Literal.setText("Maurishio Mesa" );
+                pivote="/Imagenes/mesa.jpg" ;
+            break;
+            
+             case "Sebastián Moreno":            
+                Literal.setText( "Sebasutian Moreno" );
+                pivote="/Imagenes/moreno.jpg" ;
+            break;            
+            
+            case "Sergio Quintero":            
+                Literal.setText( "Seruhio Kintero" );
+                pivote="/Imagenes/quintero.jpg" ;
+            break;
+            
+            case "Daniela Quiroga":            
+                Literal.setText( "Daniera Kiroga" );
+                pivote="/Imagenes/quiroga.jpg" ;
+            break;
+            
+            case "Mariana Rodríguez":            
+                Literal.setText( "Mariana Rodorigesu" );
+                pivote="/Imagenes/rodriguez.jpg" ;
+            break;
+            
+            case "Sebastián Sánchez":            
+                Literal.setText( "Sebasutian Sanchesu" );
+                pivote="/Imagenes/sanchez.jpg" ;
+            break;
+            
+            case "María Sánchez":            
+                Literal.setText( "Maria Sanchesu" );
+                pivote="/Imagenes/sanchez.jpg" ;
+            break;
+            
+            case "Oscar Segura":            
+                Literal.setText( "Osukaru Segura" );
+                pivote="/Imagenes/segura.jpg" ;
+            break;
+            
+            case "Andrés Sierra":            
+                Literal.setText("Andoresu Shiera" );
+                pivote="/Imagenes/sierra.jpg" ;
+            break;
+            
+            case "Sebastián Tovar":            
+                Literal.setText("Sebasutian Tobaru" );
+                pivote="/Imagenes/tovar.jpg" ;
+            break;
+            
+            case "Julie Triviño":            
+                Literal.setText( "Furie Toribinyo" );
+                pivote="/Imagenes/triviño.jpg" ;
+            break;
+            
+            case "Brayan Upegui":            
+                Literal.setText("Burajan Upegi" );
+                pivote="/Imagenes/upegui.jpg" ;
+            break;
+            
+            
+            case "Juan Valenzuela":            
+                Literal.setText( "Fuan Barensuera" );
+                pivote="/Imagenes/valenzuela.jpg" ;
+            break;
+            
+            
+            default:
+                Literal.setText("Ingrese su nombre correctamente escrito");
+            break; 
+        }
+              
+                Imagen Imagen = new Imagen();
+                KanaApellido.add(Imagen);
+                KanaApellido.repaint();
+                KanaApellido.show(true); 
 
 
 
